@@ -16,5 +16,8 @@ public class Main {
 
         System.out.println();
         System.out.println("Result after using method add = " + fileNavigator);
+        System.out.println();
+        System.out.println("Result after using method find = " +
+                fileNavigator.find("/path/java/files5"));
     }
 }
