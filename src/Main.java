@@ -21,5 +21,8 @@ public class Main {
                 fileNavigator.find("/path/java/files5"));
         System.out.println();
         System.out.println("Result after using method filterBySize = " + fileNavigator.filterBySize((byte) 10));
+        System.out.println();
+        fileNavigator.remove("/path/java/files5");
+        System.out.println("Result after using method remove = " + fileNavigator);
     }
 }

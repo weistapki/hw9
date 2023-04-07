@@ -41,6 +41,13 @@ public class FileNavigator {
         }
         return result;
     }
+    public void remove(String path) {
+        if(files.containsKey(path)) {
+            files.remove(path);
+        } else {
+            System.out.println("Path not found");
+        }
+    }
     @Override
     public String toString() {
         return "FileNavigator{" +
