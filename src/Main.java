@@ -24,5 +24,7 @@ public class Main {
         System.out.println();
         fileNavigator.remove("/path/java/files5");
         System.out.println("Result after using method remove = " + fileNavigator);
+        System.out.println();
+        System.out.println("Result after using method sortBySize = " + fileNavigator.sortBySize());
     }
 }

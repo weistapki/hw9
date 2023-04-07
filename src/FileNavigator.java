@@ -48,6 +48,14 @@ public class FileNavigator {
             System.out.println("Path not found");
         }
     }
+    public List<FileData> sortBySize() {
+        Collection<List<FileData>> values = files.values();
+        ArrayList<FileData> files = new ArrayList<>();
+        for (List<FileData> file : values) {files.addAll(file);
+        }
+        files.sort(Comparator.comparing(FileData::getSize));
+        return files;
+    }
     @Override
     public String toString() {
         return "FileNavigator{" +
