@@ -29,6 +29,18 @@ public class FileNavigator {
         }
         return namesToReturn;
     }
+    public List<FileData> filterBySize(int findSize) {
+        List<FileData> result = new ArrayList<>();
+
+        for (List<FileData> allFile : files.values()) {
+            for (FileData file : allFile) {
+                if (file.getSize() <= findSize) {
+                    result.add(file);
+                }
+            }
+        }
+        return result;
+    }
     @Override
     public String toString() {
         return "FileNavigator{" +
