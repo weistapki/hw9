@@ -12,29 +12,29 @@ public class FileNavigator {
         } else if (files.containsKey(path)) {
             files.get(path).add(newFile);
         } else {
-            List<FileData> file = new ArrayList<>();
-            file.add(newFile);
-            files.put(path, file);
+            List<FileData> fileList = new ArrayList<>();
+            fileList.add(newFile);
+            files.put(path, fileList);
         }
     }
     public List<String> find(String path) {
-        List<String> namesToReturn = new ArrayList<>();
+        List<String> result = new ArrayList<>();
 
         if (files.containsKey(path)) {
-            for (FileData elem : files.get(path)) {
-                namesToReturn.add(elem.getFileName());
+            for (FileData file : files.get(path)) {
+                result.add(file.getFileName());
             }
         } else {
             System.out.printf("File path %s is not found in the file storage!%n", path);
         }
-        return namesToReturn;
+        return result;
     }
-    public List<FileData> filterBySize(int findSize) {
+    public List<FileData> filterBySize(int size) {
         List<FileData> result = new ArrayList<>();
 
-        for (List<FileData> allFile : files.values()) {
-            for (FileData file : allFile) {
-                if (file.getSize() <= findSize) {
+        for (List<FileData> filesValues : files.values()) {
+            for (FileData file : filesValues) {
+                if (file.getSize() <= size) {
                     result.add(file);
                 }
             }
@@ -49,9 +49,9 @@ public class FileNavigator {
         }
     }
     public List<FileData> sortBySize() {
-        Collection<List<FileData>> values = files.values();
+        Collection<List<FileData>> sortedFiles = files.values();
         ArrayList<FileData> files = new ArrayList<>();
-        for (List<FileData> file : values) {files.addAll(file);
+        for (List<FileData> file : sortedFiles) {files.addAll(file);
         }
         files.sort(Comparator.comparing(FileData::getSize));
         return files;
