@@ -6,14 +6,14 @@ import java.util.*;
 public class FileNavigator {
     private final Map<String, List<FileData>> files = new HashMap<>();
 
-    public void add(String path, FileData newFile) {
-        if (!path.equals(newFile.getPathToFile())) {
-            System.out.printf("This path doesn't match the file path" + newFile.getFileName());
+    public void add(String path, FileData file) {
+        if (!path.equals(file.getPathToFile())) {
+            System.out.printf("This path doesn't match the file path" + file.getFileName());
         } else if (files.containsKey(path)) {
-            files.get(path).add(newFile);
+            files.get(path).add(file);
         } else {
             List<FileData> fileList = new ArrayList<>();
-            fileList.add(newFile);
+            fileList.add(file);
             files.put(path, fileList);
         }
     }
